@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    <item-->
+    <!--        android:id="@+id/manage_individual_person_data"-->
+    <!--        android:title="Individual Person Data"-->
+    <!--        android:textSize="22sp"-->
+
+    <!--        android:icon="@drawable/ic_individual_person_data1">-->
+    <!--    </item>-->
+    <item
+        android:id="@+id/nav_about"
+        android:title="About"
+        android:icon="@drawable/ic_about">
+    </item>
+    <item
+        android:id="@+id/nav_userInstructions"
+        android:title="Admin Instructions"
+        android:icon="@drawable/ic_user_instructions_blue">
+    </item>
+    <!--    <item-->
+    <!--        android:id="@+id/settings"-->
+    <!--        android:title="Settings"-->
+    <!--        android:icon="@drawable/ic_baseline_settings_24">-->
+    <!--    </item>-->
+    <!--    <item-->
+    <!--        android:id="@+id/share_app"-->
+    <!--        android:title="Share App"-->
+    <!--        android:icon="@drawable/ic_share_app">-->
+    <!--    </item>-->
+    <!--    <item-->
+    <!--        android:id="@+id/rate_us"-->
+    <!--        android:title="Rate Us"-->
+    <!--        android:icon="@drawable/ic_rate_us">-->
+    <!--    </item>-->
+    <item
+        android:id="@+id/contact_us"
+        android:title="Contact Us"
+        android:icon="@drawable/ic_email_contact_us">
+    </item>
+
+    <!--    <item-->
+    <!--        android:id="@+id/google_drive_support"-->
+    <!--        android:title="Google Drive Support"-->
+    <!--        android:icon="@drawable/ic_googledrive">-->
+    <!--    </item>-->
+
+    <!--    <item-->
+    <!--        android:id="@+id/nav_addOrSwitchAccount"-->
+    <!--        android:title="Add or Switch Accounts"-->
+    <!--        android:icon="@drawable/ic_user_add">-->
+    <!--    </item>-->
+    <!--    <item-->
+    <!--        android:id="@+id/nav_signOut"-->
+    <!--        android:title="Sign Out"-->
+    <!--        android:icon="@drawable/ic_baseline_logout_24">-->
+    <!--    </item>-->
+</menu>

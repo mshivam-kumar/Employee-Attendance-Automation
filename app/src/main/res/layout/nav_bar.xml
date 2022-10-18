@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/purple_500"
+    android:layout_gravity="end"
+    android:id="@+id/nav_bar">
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingStart="0dp"
+        android:text="@string/app_name"
+        android:textSize="18sp">
+
+    </TextView>
+
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingStart="1dp"-->
+<!--        android:src="@drawable/ic_logo"-->
+<!--        tools:layout_editor_absoluteX="213dp">-->
+
+<!--    </ImageView>-->
+
+
+    <ImageButton
+        android:id="@+id/nav_image_button"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:paddingEnd="10dp"
+        android:src="@drawable/ic_white_menu_button">
+
+    </ImageButton>
+</androidx.appcompat.widget.Toolbar>
