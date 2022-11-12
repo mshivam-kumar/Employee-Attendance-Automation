@@ -718,92 +718,7 @@ public class UserSetupForFaceRecog extends AppCompatActivity {
 
 
 
-//        face_preview.setVisibility(View.INVISIBLE);
-//        recognize=findViewById(R.id.button3);
-
-        camera_switch=findViewById(R.id.button5);
-
-//        actions=findViewById(R.id.button2);
-
-//        recognize.setEnabled(false);
-//        recognize.setVisibility(View.GONE);//Admin controls hidden from user
-
-//        actions.setEnabled(false);//making button first unable to use for user
-//        actions.setVisibility(View.GONE);//temporarly hiding actions button ,  as these privilages are available to admin
-
-        preview_info.setText("\n     Recognized Face:");
-
-        //Camera Permission
-        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
-        }
-
-//        try {
-//
-//            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-//                requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
-//            }
-//        }
-//        catch (Exception e)
-//        {
-//            //Log.d("svm","Error : "+e.getMessage());
-//        }
-
-
-        //On-screen Action Button
-//        actions.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                builder.setTitle("Select Action:");
-//
-//                // add a checkbox list
-//                String[] names= {"View Recognition List","Update Recognition List","Save Recognitions","Load Recognitions","Clear All Recognitions","Import Photo (Beta)"};
-//
-//                builder.setItems(names, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                        switch (which)
-//                        {
-//                            case 0:
-//                                displaynameListview();
-//                                break;
-//                            case 1:
-//                                updatenameListview();
-//                                break;
-//                            case 2:
-//                                insertToSP(registered,false);
-//                                break;
-//                            case 3:
-//                                registered.putAll(readFromSP());//load the saved data
-//                                break;
-//                            case 4:
-//                                clearnameList();
-//                                break;
-//                            case 5:
-//                                loadphoto();
-//                                break;
-//                        }
-//
-//                    }
-//                });
-
-
-//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                    }
-//                });
-//                builder.setNegativeButton("Cancel", null);
-//
-//                // create and show the alert dialog
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-//            }
-//        });
-
+//       
         //On-screen switch to toggle between Cameras.
         camera_switch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -830,86 +745,7 @@ public class UserSetupForFaceRecog extends AppCompatActivity {
 //        }));
 
 
-//        recognize.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(recognize.getText().toString().equals("Recognize"))
-//                {
-//                    start=true;
-//                    recognize.setText("Add Face");
-//                    add_face.setVisibility(View.INVISIBLE);
-//                    reco_name.setVisibility(View.VISIBLE);
-//                    face_preview.setVisibility(View.INVISIBLE);
-//                    preview_info.setText("\n    Recognized Face:");
-//                    //preview_info.setVisibility(View.INVISIBLE);
-//                }
-//                else
-//                {
-//                    recognize.setText("Recognize");
-//                    add_face.setVisibility(View.VISIBLE);
-//                    reco_name.setVisibility(View.INVISIBLE);
-//                    face_preview.setVisibility(View.VISIBLE);
-//                    preview_info.setText("1.Bring Face in view of Camera.\n\n2.Your Face preview will appear here.\n\n3.Click Add button to save face.");
-//
-//
-//                }
-//
-//            }
-//        });
-
-        //Load model
-        try {
-            tfLite=new Interpreter(loadModelFile(UserSetupForFaceRecog.this,modelFile));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //Initialize Face Detector
-        FaceDetectorOptions highAccuracyOpts =
-                new FaceDetectorOptions.Builder()
-                        .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
-                        .build();
-        detector = FaceDetection.getClient(highAccuracyOpts);
-
-        cameraBind();
-
-
-
-    }
-
-    public long getMinutesTimeDifferenceBtwTwoTimes(String time1,String time2)
-    {
-
-        SimpleDateFormat simpleDateFormat= new SimpleDateFormat("HH:mm");
-
-// Parsing the Time Period
-        Date date1=new Date();
-        Date date2=new Date();
-        try
-        {
-            date1 = simpleDateFormat.parse(time1);
-            date2 = simpleDateFormat.parse(time2);
-        }catch(Exception e){}
-
-// Calculating the difference in milliseconds
-        long differenceInMilliSeconds
-                = Math.abs(date2.getTime() - date1.getTime());
-
-// Calculating the difference in Hours
-        long differenceInHours
-                = (differenceInMilliSeconds / (60 * 60 * 1000))
-                % 24;
-
-// Calculating the difference in Minutes
-        long differenceInMinutes
-                = (differenceInMilliSeconds / (60 * 1000)) % 60;
-
-        long totalDifferenceOfMinutes=differenceInHours*60+differenceInMinutes;
-        String t=differenceInHours+"h:"+differenceInMinutes+"m";
-        Log.d("svm","total  time method : "+t);
-
-        return totalDifferenceOfMinutes;
-    }
-
+//       
 
     public String getEntryExitTimeDifference(String time1,String time2)
     {
@@ -1003,74 +839,10 @@ public class UserSetupForFaceRecog extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-    private void updatenameListview()
-    {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        if(registered.isEmpty()) {
-            builder.setTitle("No Faces Added!!");
-            builder.setPositiveButton("OK",null);
-        }
-        else{
-            builder.setTitle("Select Recognition to delete:");
-
-            // add a checkbox list
-            String[] names= new String[registered.size()];
-            boolean[] checkedItems = new boolean[registered.size()];
-            int i=0;
-            for (Map.Entry<String, SimilarityClassifier.Recognition> entry : registered.entrySet())
-            {
-                //System.out.println("NAME"+entry.getKey());
-                names[i]=entry.getKey();
-                checkedItems[i]=false;
-                i=i+1;
-
-            }
-
-            builder.setMultiChoiceItems(names, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                    // user checked or unchecked a box
-                    //Toast.makeText(MainActivity.this, names[which], Toast.LENGTH_SHORT).show();
-                    checkedItems[which]=isChecked;
-
-                }
-            });
-
-
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    // System.out.println("status:"+ Arrays.toString(checkedItems));
-                    for(int i=0;i<checkedItems.length;i++)
-                    {
-                        //System.out.println("status:"+checkedItems[i]);
-                        if(checkedItems[i])
-                        {
-//                                Toast.makeText(MainActivity.this, names[i], Toast.LENGTH_SHORT).show();
-                            registered.remove(names[i]);
-                        }
-
-                    }
-                    Toast.makeText(context, "Recognitions Updated", Toast.LENGTH_SHORT).show();
-                }
-            });
-            builder.setNegativeButton("Cancel", null);
-
-            // create and show the alert dialog
-            AlertDialog dialog = builder.create();
-            dialog.show();
-        }
-    }
+    
     private void displaynameListview()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        // System.out.println("Registered"+registered);
-        if(registered.isEmpty())
-            builder.setTitle("No Faces Added!!");
-        else
-            builder.setTitle("Recognitions:");
-
+    
         // add a checkbox list
         String[] names= new String[registered.size()];
         boolean[] checkedItems = new boolean[registered.size()];
@@ -1083,7 +855,6 @@ public class UserSetupForFaceRecog extends AppCompatActivity {
             i=i+1;
 
         }
-        builder.setItems(names,null);
 
 
 
@@ -1117,9 +888,7 @@ public class UserSetupForFaceRecog extends AppCompatActivity {
 
     private MappedByteBuffer loadModelFile(Activity activity, String MODEL_FILE) throws IOException {
         AssetFileDescriptor fileDescriptor = activity.getAssets().openFd(MODEL_FILE);
-        FileInputStream inputStream = new FileInputStream(fileDescriptor.getFileDescriptor());
         FileChannel fileChannel = inputStream.getChannel();
-        long startOffset = fileDescriptor.getStartOffset();
         long declaredLength = fileDescriptor.getDeclaredLength();
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
     }
