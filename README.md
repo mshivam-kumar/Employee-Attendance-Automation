@@ -7,3 +7,6 @@ An android app for automating employees attendance using java, XML and sqlite3 d
 ● It has two panels (admin and user) with GPS (Global Positioning System) support.<br>
 ● Uses mobile facenet neural network for face recognition achieved with google ml kit and tensorflow-lite libraries.<br>
 ● Was finalist for SIH(Smart India Hackathon) 2022.<br>
+
+PS: Google has removed this app from the Play Store due to not maintaining updates on a regular basis.
+
