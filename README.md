@@ -6,4 +6,4 @@ An android app for automating employees attendance using java, XML and sqlite3 d
 ● Allows employees to mark their attendance (entry/exit) within specified range from office (set by admin).<br>
 ● It has two panels (admin and user) with GPS (Global Positioning System) support.<br>
 ● Uses mobile facenet neural network for face recognition achieved with google ml kit and tensorflow-lite libraries.<br>
-● Submitted for SIH (Smart India Hackathon 2022) after finalist at internal hackathon.<br>
+● Was finalist for SIH(Smart India Hackathon) 2022.<br>
